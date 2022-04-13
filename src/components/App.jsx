@@ -32,7 +32,11 @@ export default function App() {
   }
 
   function formSubmitHandler(data) {
-    if (contacts.find(el => el.name.includes(data.name))) {
+    if (
+      contacts.find(el =>
+        el.name.toLowerCase().includes(data.name.toLowerCase())
+      )
+    ) {
       return alert(`${data.name} is already in contacts`);
     }
     setContacts([data, ...contacts]);
